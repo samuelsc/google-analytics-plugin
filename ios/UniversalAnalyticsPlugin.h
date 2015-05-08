@@ -12,6 +12,7 @@
 }
 
 - (void) startTrackerWithId: (CDVInvokedUrlCommand*)command;
+- (void) startADTrackerWithId: (CDVInvokedUrlCommand*)command;
 - (void) setUserId: (CDVInvokedUrlCommand*)command;
 - (void) debugMode: (CDVInvokedUrlCommand*)command;
 - (void) addCustomDimension: (CDVInvokedUrlCommand*)command;

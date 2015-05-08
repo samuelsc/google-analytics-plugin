@@ -1,5 +1,9 @@
 function UniversalAnalyticsPlugin() {}
 
+UniversalAnalyticsPlugin.prototype.startADTrackerWithId = function(id, success, error) {
+  cordova.exec(success, error, 'UniversalAnalytics', 'startADTrackerWithId', [id]);
+};
+
 UniversalAnalyticsPlugin.prototype.startTrackerWithId = function(id, success, error) {
   cordova.exec(success, error, 'UniversalAnalytics', 'startTrackerWithId', [id]);
 };
