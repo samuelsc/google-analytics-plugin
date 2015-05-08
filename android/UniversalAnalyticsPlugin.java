@@ -14,7 +14,11 @@ import org.json.JSONException;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
+import android.util.Log;
+
 public class UniversalAnalyticsPlugin extends CordovaPlugin {
+	public static final String TAG = "UniversalAnalyticsPlugin";
+    public static final String START_AD_TRACKER = "startADTrackerWithId";
     public static final String START_TRACKER = "startTrackerWithId";
     public static final String TRACK_VIEW = "trackView";
     public static final String TRACK_EVENT = "trackEvent";
@@ -35,7 +39,11 @@ public class UniversalAnalyticsPlugin extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if (START_TRACKER.equals(action)) {
+        if (START_AD_TRACKER.equals(action)) {
+            String id = args.getString(0);
+            this.startADTracker(id, callbackContext);
+            return true;
+        }else if (START_TRACKER.equals(action)) {
             String id = args.getString(0);
             this.startTracker(id, callbackContext);
             return true;
@@ -106,6 +114,20 @@ public class UniversalAnalyticsPlugin extends CordovaPlugin {
         return false;
     }
 
+    private void startADTracker(String id, CallbackContext callbackContext) {
+        if (null != id && id.length() > 0) {
+			Log.i(TAG, "getting tracker...with id: "+id);
+            tracker = GoogleAnalytics.getInstance(this.cordova.getActivity()).newTracker(id);
+			tracker.enableAdvertisingIdCollection(true);
+			Log.i(TAG, "tracker started");
+            trackerStarted = true;
+            GoogleAnalytics.getInstance(this.cordova.getActivity()).setLocalDispatchPeriod(30);
+            callbackContext.success("tracker started");
+        } else {
+            callbackContext.error("tracker id is not valid");
+        }
+    }
+	
     private void startTracker(String id, CallbackContext callbackContext) {
         if (null != id && id.length() > 0) {
             tracker = GoogleAnalytics.getInstance(this.cordova.getActivity()).newTracker(id);
