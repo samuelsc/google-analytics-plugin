@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/danwilson/google-analytics-plugin.git"
+    "url": "https://github.com/samuelsc/google-analytics-plugin.git"
   },
   "keywords": [
     "cordova",
@@ -24,6 +24,6 @@
     "universal",
     "universalanalytics"
   ],
-  "author": "Dan Wilson",
+  "author": "Samuelsc",
   "license": "MIT"
 }
