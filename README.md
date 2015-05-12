@@ -1,6 +1,7 @@
 google-analytics-plugin
 =======================
 
+(Clone from danwilson/google-analytics-plugin. Please give credit to Dan Wilson)
 Cordova (PhoneGap) 3.0+ Plugin to connect to Google's native Universal Analytics SDK 3.0
 
 Prerequisites:
@@ -11,7 +12,7 @@ Prerequisites:
 
 This plugin follows the Cordova 3.0 plugin spec, so it can be installed through the Cordova CLI in your existing Cordova project:
 ```bash
-cordova plugin add https://github.com/danwilson/google-analytics-plugin.git
+cordova plugin add https://github.com/samuelsc/google-analytics-plugin.git
 ```
 The plugin.xml file will add the Google Analytics SDK files for Android and/or iOS.  Follow [Google's steps](#sdk-files) if you need to update these later.  Also make sure to review the Google Analytics [terms](http://www.google.com/analytics/terms/us.html) and [SDK Policy](https://developers.google.com/analytics/devguides/collection/protocol/policy)
 
