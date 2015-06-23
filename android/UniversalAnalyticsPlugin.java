@@ -1,4 +1,4 @@
-package com.danielcwilson.plugins.analytics;
+package com.samuelsc.plugins.analytics;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Logger.LogLevel;
